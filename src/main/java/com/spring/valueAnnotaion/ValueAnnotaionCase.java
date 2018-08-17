@@ -1,7 +1,6 @@
 package com.spring.valueAnnotaion;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -51,7 +50,8 @@ public class ValueAnnotaionCase {
     /**
      * 系统变量
      */
-    @Value("#{systemProperties[user.dir]}")
+    //@Value("#{systemProperties[user.dir]}")
+    @Value("aaa")
     private String userDir;
 
 
