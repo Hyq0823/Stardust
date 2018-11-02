@@ -1,0 +1,5 @@
+tahceCname: a,b,c,d
+name: i'm springboot application name
+listOfValues: A,B,C,
+server:
+  port: 9992

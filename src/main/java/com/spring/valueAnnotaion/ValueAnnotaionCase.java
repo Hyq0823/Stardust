@@ -23,7 +23,7 @@ import java.util.List;
 @Component
 public class ValueAnnotaionCase {
 
-    @Value("${name}") //定义常量
+    @Value("hyq") //定义常量
     private String name;
 
     /**
@@ -47,6 +47,9 @@ public class ValueAnnotaionCase {
     @Value("#{'${listOfValues}'.split(',')}")
     private List<String> valueList;
 
+    @Value("${tahceCname}")
+    private String nameTest;
+
     /**
      * 系统变量
      */
@@ -57,6 +60,9 @@ public class ValueAnnotaionCase {
 
     @PostConstruct
     public void init(){
+
+        System.out.println(nameTest);
+
         System.out.println("初始化name: " + name);
         System.out.println("defaultValue: " + defaultValue);
         for(String a : valuesArray){
@@ -64,6 +70,7 @@ public class ValueAnnotaionCase {
         }
         valueList.forEach(System.out::println);
         System.out.println(userDir);
+
 
     }
 
