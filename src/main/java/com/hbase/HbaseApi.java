@@ -2,6 +2,7 @@ package com.hbase;
 
 import com.constants.HbaseTable;
 import com.google.protobuf.ServiceException;
+import org.apache.hadoop.hbase.client.HTable;
 
 import java.io.IOException;
 import java.util.List;
@@ -49,6 +50,12 @@ public interface HbaseApi {
      */
     void put(HbaseTable table,String rowKey,Map<String,Object> dataMap) throws IOException, ServiceException;
 
+
+
+    public HTable buildHtable(String tableName);
+
+
+    void eableTable(String tableName);
 
 
 

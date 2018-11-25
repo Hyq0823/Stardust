@@ -48,6 +48,21 @@ public class HbaseClient implements HbaseApi {
         }
     }
 
+    @Override
+    public void eableTable(String tableName){
+        Connection connection = null;
+        try {
+            HBaseAdmin.checkHBaseAvailable(conf);
+            connection = getConnection();
+            Admin admin = connection.getAdmin();
+            admin.enableTable(TableName.valueOf(tableName));
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            close(connection);
+        }
+    }
+
     public HbaseClient(Configuration conf) {
         this.conf = conf;
     }
@@ -100,7 +115,7 @@ public class HbaseClient implements HbaseApi {
 
 
     @Override
-    public boolean creatTable(String tableName, List<String> columnFamilys) throws IOException, ServiceException {
+    public boolean creatTable(String tableName, List<String> columnFamilys)  {
         Connection connection = null;
         try {
             HBaseAdmin.checkHBaseAvailable(conf);
@@ -120,7 +135,7 @@ public class HbaseClient implements HbaseApi {
     }
 
     @Override
-    public boolean deleteTable(String tableName) throws IOException, ServiceException {
+    public boolean deleteTable(String tableName)  {
         Connection connection = null;
         try {
             HBaseAdmin.checkHBaseAvailable(conf);
@@ -165,5 +180,18 @@ public class HbaseClient implements HbaseApi {
     @Override
     public void put(HbaseTable table, String rowKey, Map<String, Object> dataMap) throws IOException, ServiceException {
         put(table.value(),rowKey,"main",dataMap);
+    }
+
+    @Override
+    public HTable buildHtable(String tableName) {
+        try {
+            Connection connection = getConnection();
+            TableName tbObj = TableName.valueOf(tableName);
+            HTable hTable = (HTable) connection.getTable(tbObj);
+            return hTable;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("错误：can't not build htable..." + e.getMessage());
+        }
     }
 }
