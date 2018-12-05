@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class Test {
     public static void main(String[] args) throws ParseException {
-        String time = "2018-11-07 17:46:00";
+        String time = "2018-11-07 17:02:00";
         int interval = 5;
 
 
