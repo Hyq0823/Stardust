@@ -1,0 +1,47 @@
+<html>
+<body>
+<head>
+	<script  src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+</head>
+
+<h3 id="test">init...</h3>
+</body>
+
+
+<script type="text/javascript">
+    $(function(){
+
+        $.ajax({
+            type:'POST'
+            ,dataType:"jsonp"
+            ,url:'http://localhost:9992/cors/info3'
+            ,data:{}
+            ,contentType:'application/json;charset=utf-8'
+            //,jsonp:"callback" //指定回调函数的名字。一般不改这个，默认callback
+            //,jsonpCallback:"myCallback"  //手动执行发送给服务器的callback参数名，否则由jquery自动帮我们生成，类似jQuery17207352806672191685_1544278219377
+            ,success:function(data){
+                debugger;
+                alert("ajax: "+JSON.stringify(data));
+            }
+        });
+
+    }
+</script>
+
+
+
+
+<script type="text/javascript">
+    function myCallback(res){
+
+        alert(JSON.stringify(res));
+    }
+
+</script>
+
+<!--script标签必须在声明的回调函数后面，否则会报错 -->
+<!-- <script src="http://localhost:9992/cors/infoWithCallBack"></script> -->
+
+<!-- <script src="http://localhost:9992/cors/info"></script>  -->
+
+</html>
