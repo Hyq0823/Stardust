@@ -3,7 +3,6 @@ package com.constants;
 import com.hbase.HbaseClient;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -19,7 +18,7 @@ public class HBaseConfig {
     @Value("${HBase.maxsize:10000}")
     private String maxsize;
 
-    @Bean
+//    @Bean
     public HbaseClient getHbaseService(){
         org.apache.hadoop.conf.Configuration conf = HBaseConfiguration.create();
 //        conf.set("hbase.zookeeper.quorum","127.0.0.1:2181" );

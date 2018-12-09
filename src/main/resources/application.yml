@@ -3,3 +3,11 @@ name: i'm springboot application name
 listOfValues: A,B,C,
 server:
   port: 9992
+logging:
+  level:
+    root: debug
+    com:
+      app: info
+    org:
+      mybatis: info
+  path: ./logs
