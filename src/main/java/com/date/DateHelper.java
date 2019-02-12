@@ -16,10 +16,10 @@ import java.util.List;
  * @Description:Created on 2018/4/11 14:18.
  */
 public class DateHelper {
-    public static final String DEFAULT_PATTERN = "yyyy-MM-dd HH:mm:ss";
+    private static final String DEFAULT_PATTERN = "yyyy-MM-dd HH:mm:ss";
     public static final String PATTERN_TIMEMIN = "yyyyMMddHHmm";
-    public static final String PATTERN_DATE = "yyyy-MM-dd";
-    public static final String PATTERN_DATE_MIN = "yyyy-MM-dd HH:mm";
+    public static final String PATTERN_YYYYMMDD = "yyyyMMdd";
+    public static final String PATTERN_ABOVEDAY = "yyyy-MM-dd";
 
 
     public static int carlendarValue(Date date,int carlendarField){

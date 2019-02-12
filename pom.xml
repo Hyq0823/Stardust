@@ -4,7 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>mymaven</groupId>
+    <packaging>pom</packaging>
     <version>1.0</version>
+    <modules>
+        <module>Logbook</module>
+        <module>Hbase</module>
+    </modules>
     <artifactId>mymaven</artifactId>
     <name>mymaven</name>
     <!-- Inherit defaults from Spring Boot -->
@@ -19,7 +24,20 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <hbase.client.verseion>1.2.1</hbase.client.verseion>
     </properties>
+
+        <dependencyManagement>
+        </dependencyManagement>
+
     <dependencies>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.13.Final</version>
+        </dependency>
+
+
+
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka_2.11</artifactId>
@@ -102,7 +120,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.9</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -140,6 +158,10 @@
                     <artifactId>servlet-api</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
         </dependency>
     </dependencies>
 

@@ -16,7 +16,7 @@ public class Test {
         //比如当前2018-11-07 17:46:00 时间步长 为5分钟
         //则时间段为 2018-11-07 17:40:00 --> 2018-11-07 17:45:00
         //得出
-        Date date = DateHelper.parseTime(time,DateHelper.PATTERN_DATE_MIN);
+        Date date = DateHelper.parseTime(time,DateHelper.PATTERN_TIMEMIN);
         int minute = DateHelper.carlendarValue(date,Calendar.MINUTE);
         int gap = minute % interval;
         Date endDate = DateHelper.getTargetDate(date, Calendar.MINUTE, -gap);

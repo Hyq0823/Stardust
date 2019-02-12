@@ -25,6 +25,7 @@ import java.util.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
 @WebAppConfiguration
+
 public class TestHbaseSql {
 
     @Autowired

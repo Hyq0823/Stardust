@@ -1,0 +1,37 @@
+tahceCname: a,b,c,d
+name: i'm springboot application name
+listOfValues: A,B,C,
+server:
+  port: 9992
+logging:
+  level:
+    root: info
+    com:
+      app: info
+    org:
+      mybatis: info
+      zalando:
+        logbook: TRACE
+  path: ./logs
+
+
+logbook:
+    include:
+        - /api/**
+        - /actuator/**
+    exclude:
+        - /actuator/health
+        - /api/admin/**
+    filter.enabled: true
+    format.style: http
+    obfuscate:
+        headers:
+            - Authorization
+            - X-Secret
+        parameters:
+            - access_token
+            - password
+    write:
+        category: http.wire-log
+        level: INFO
+        chunk-size: 1000
