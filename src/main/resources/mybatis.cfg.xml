@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
     <!-- 引入外部配置文件 -->
     <!-- 为JAVA Bean起类别名 -->
     <!--    <typeAliases >
@@ -34,6 +37,7 @@
         <!--关联单个小配置,不能重复关联-->
         <!-- <mapper resource="cn/happy/dao/IUserDAO.xml"/>-->
         <!--关联整个包,dao层接口名字和对应的xml名字要一样-->
-        <mapper resource="com/hl/hlf/GoodsMapper.xml"/>
+        <!--<mapper resource="com/hl/hlf/GoodsMapper.xml"/>-->
+        <mapper resource="GoodsMapper.xml"/>
     </mappers>
 </configuration>

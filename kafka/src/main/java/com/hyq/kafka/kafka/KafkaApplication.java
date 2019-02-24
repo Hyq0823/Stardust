@@ -13,7 +13,6 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 public class KafkaApplication {
@@ -27,11 +26,11 @@ public class KafkaApplication {
         MessageProducer producer = context.getBean(MessageProducer.class);
         MessageListener listener = context.getBean(MessageListener.class);
 
-        producer.sendGreetingMessage("Greetings World!2");
+//        producer.sendGreetingMessage("Greetings World!2");
 
 
-        listener.greetingLatch.await(10, TimeUnit.SECONDS);
-        context.close();
+//        listener.greetingLatch.await(10, TimeUnit.SECONDS);
+//        context.close();
 
 
         /*
@@ -89,7 +88,7 @@ public class KafkaApplication {
         @KafkaListener(topics = "${greeting.topic.name}", containerFactory = "greetingKafkaListenerContainerFactory")
         public void greetingListener(String greeting) {
             System.out.println("Recieved greeting message: " + greeting);
-            this.greetingLatch.countDown();
+//            this.greetingLatch.countDown();
         }
 
 //    @KafkaListener(topics = "${message.topic.name}", groupId = "foo", containerFactory = "fooKafkaListenerContainerFactory")
